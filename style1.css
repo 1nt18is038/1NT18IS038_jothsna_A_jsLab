@@ -1,0 +1,20 @@
+body{
+  background-image: url("atmo1.jpg");
+  background-repeat:no-repeat;
+  background-size:900px;
+  background-position-x: center;
+}
+form{
+    border:2px;
+    border-width: 200px;
+}
+#head1{
+   text-align: center;
+   font-size: larger;
+   font-family: 'Courier New', Courier, monospace;
+   color:blue;
+}
+form.class1{
+  border: 2px solid;
+  width: 400px;
+}

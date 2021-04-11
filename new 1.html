@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset=utf-8 />
+<title>Array</title>
+<script>
+   var arr=Array();
+   let i=0,j;
+   function func(){
+      arr[i]=document.getElementById("name").value; 
+	  alert("Element "+arr[i]+"is added at index "+i);
+	    i++;
+	   document.getElementById("name").value="";
+	  }
+	  function func2(){
+	  //var e="<hr/>";
+	  //var e;
+	    for(j=0;j<i;j++){
+		document.write("Name at index"+j+"="+arr[j]+"</br>")
+		//e+ ="Element "+j+" = "+arr[j]+"</br>";
+		
+		}
+		//document.getElementById("display").innerHTML=e;
+		 
+		}
+</script>
+</head>
+<body>
+<form>
+Enter your name:
+<input type="text" id="name" placeholder="Enter your name"></<br>
+<input type="button" onclick="func();" value="submit">
+<br><br>
+<input type="button" onclick="func2();" value="show">
+<br>
+<br>
+</form>
+<div id="display"></div>
+</body>
+</html>
+
