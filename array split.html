@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset=utf-8 />
+<title>Array</title>
+<script>
+   var arr=Array();
+   let i=0,j;
+   let num=Array();
+	   var str=Array();
+	   let l,m;
+	   l=0;
+	   m=0;
+	   let k;
+   function func(){
+      arr[i]=document.getElementById("name").value; 
+	 /* alert("Element "+arr[i]+"is added at index "+i);*/
+	    i++;
+	   document.getElementById("name").value="";
+	  }
+	  function func2(){
+	   for(j=0;j<i;j++){
+		   if(!isNaN(arr[j])){
+			   num[l]=arr[j];
+			   l++;
+		   }
+		   if(isNaN(arr[j])){
+			   str[m]=arr[j];
+			   m++;
+		   }
+	   }
+	 num.sort();
+	var num1= document.getElementById("head1")
+	 num1.textContent=num
+	 str.sort();
+	 var num2=document.getElementById("head2")
+	 num2.textContent=str
+	 let dis=document.querySelector('.display')
+	   dis.style.visibility='visible'
+	   }
+	  function func3(){
+		  arr.sort();
+		  var num=document.getElementById("arr")
+		  num.textContent=arr
+		  var f=document.querySelector('.original')
+		  f.style.visibility="visible"
+	  }
+	  function func4(){
+		var f=document.querySelector('.original')
+		  f.style.visibility="hidden" 
+	  }
+</script>
+<style>
+	.display{
+		position: relative;
+		width:800px;
+       height:300px;
+	   background: rgba(200, 226,85,0.333);
+	   visibility: hidden;
+	   border-style: groove;
+	}
+	p{
+	  font-family: 'Courier New', Courier, monospace;
+	  color:violet;	
+	  font-weight:800;
+	  }
+	  h{
+		font-family: cursive;
+		background-color:green;
+		color:white;
+	  }
+	  .btn{
+		 width: 90px;
+		 height: 25px; 
+	  }
+	  .original{
+		width:800px;
+       height:200px;
+	   background: rgba(200, 226,85,0.333);
+	   visibility: hidden;
+	   border-style: groove;
+	  }
+	  #btn1{
+		position:absolute;
+		bottom:0;
+		right:0;
+		width:120px;
+		height:30px;
+	  }
+</style>
+</head>
+<body>
+<form>
+	<div>
+Enter your name:</br>
+<input type="text" id="name" placeholder="Enter your name"></br></br>
+<input type="button" class="btn" onmouseover="this.value='click this'" onmouseout="this.value='submit'" onclick="func();" value="submit">
+<br><br>
+<input type="button" class="btn" onmouseover="this.style='background-color:green;color:white'" onmouseout="this.style='background-color:white;color:black;'" onclick="func2();" value="show">
+<br>
+<br>
+</form>
+</div>
+<div class="display">
+	<center><h>Result Displayed:</h></center><br>
+<p>Number array from given array:</p>
+<p id="head1"></p></br>
+<p>String array from given array:</p>
+<p id="head2"></p>
+<button id="btn1" onmouseover="func3();" onmouseout="func4();">Show FullArray</button>
+</div><br><br>
+<div class="original">
+	<center><h>original Array</h></center>
+	<p id="arr">Original Array:</p>
+</div>
+</body>
+</html>
+
