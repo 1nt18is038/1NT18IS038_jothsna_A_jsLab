@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Simple Calculator</title>
+        <style>
+            .container{
+                position: relative;
+                width:350px;
+                height:400px;
+                background: rgba(200, 226,85,0.333);
+                margin-top:150px;
+            }
+            #cal{
+               position: relative;
+               width:320px;
+               height:40px;
+               margin:10px;
+               
+            }
+            .buttons{
+                position: relative;
+                margin-left:20px;
+            }
+            .buttons .btn{
+                position:relative;
+                width:60px;
+                height:40px;
+                margin: 5px;
+                box-shadow:5px 5px grey;
+                font-size: medium;
+            }
+            .buttons #numbtn{
+             background-color:hsl(146, 39%, 77%);
+            }
+            .buttons #opbtn{
+                background-color: hsl(352, 89%, 77%);
+            }
+            .buttons #cdbtn{
+               background-color: hsl(29, 87%, 52%);
+            }
+            #enter{
+                cursor: pointer;
+                background-color:green;
+                position:relative;
+                margin-top:10px;
+                margin-right:15px;
+                width:100px;
+                height:50px;
+                padding-left:20px;
+                font-size: larger;
+            }
+            #enter span{
+                cursor: pointer;
+                position: relative;
+                display:inline-block;
+                transition: 0.5s;
+            }
+            #enter span:after{
+                content:'\00bb';
+                position: absolute;
+                opacity:0;
+                right:-20px;
+                transition: 0.5s;
+             }
+             #enter:hover span{
+                 padding-right:25px;
+             }
+             #enter:hover span:after{
+                 opacity:1;
+                 right:0;
+             }
+        </style>
+        <script>
+          var inputele;
+          var res;
+            function insert(buttonvalue){
+        
+         inputele=document.getElementById("cal");
+         inputele.value=inputele.value+buttonvalue;
+            }
+           function operator(operatorvalue){
+           a=Number(document.getElementById("cal").value);
+           document.getElementById('cal').value='';
+           operator=operatorvalue;
+           }
+           function del(){
+              inputele.value= inputele.value.substring(0,inputele.value.length-1);
+           }
+           function calculate(){
+               res=eval(inputele.value);
+               document.getElementById('cal').value='';
+               document.getElementById('cal').value=res;
+           }
+          
+        </script>
+    </head>
+    <body>
+       <center><h style="font-family: cursive;font-size:xx-large;position:absolute;top:50px;right:600px;">BASIC CALCULATOR</h></center> 
+        <center><div class="container">
+            <div class="textfield">
+             <input id="cal" value="">
+            </div><br>
+         <div class="buttons">
+             <button class="btn" id="numbtn" onclick="insert(1)">1</button>
+             <button class="btn" id="numbtn" onclick="insert(2)">2</button>
+             <button class="btn" id="numbtn" onclick="insert(3)">3</button>
+             <button class="btn" id="opbtn" onclick="insert('+')">+</button><br>
+             <button class="btn" id="numbtn" onclick="insert(4)">4</button>
+             <button class="btn" id="numbtn" onclick="insert(5)">5</button>
+             <button class="btn" id="numbtn" onclick="insert(6)">6</button>
+             <button class="btn" id="opbtn" onclick="insert('*')">*</button><br>
+             <button class="btn" id="numbtn" onclick="insert(7)">7</button>
+             <button class="btn" id="numbtn" onclick="insert(8)">8</button>
+             <button class="btn" id="numbtn" onclick="insert(9)">9</button>
+             <button class="btn" id="opbtn" onclick="insert('-')">-</button><br>
+             <button class="btn" id="numbtn" onclick="insert(0)">0</button>
+             <button class="btn" id="cdbtn" onclick="document.getElementById('cal').value=''">clr</button>
+             <button class="btn" id="cdbtn" onclick="del()">del</button>
+             <button class="btn"  id="opbtn"onclick="insert('/')">/</button><br>
+            <center><button id="enter" onclick="calculate()"><span>Enter</span></button></center> 
+
+         </div>
+        </div></center>
+    </body>
+</html>
