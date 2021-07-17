@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #image{
+            visibility: hidden;
+            width:400px;
+            height:400px;
+        }
+        #p1{
+            background-color: skyblue;
+            font-size:"15px";
+            font-family: sans-serif;
+            width:600px;
+        }
+    </style>
+</head>
+<body>
+    <h style="font-size:20px;">Solar System</h><br>
+    <select name="sel" id="sel" onchange="planets(this.value)">
+        <option value="0" id="0"></option>
+        <option value="1" id="1">Mercury</option>
+        <option value="2" id="2">Venus</option>
+        <option value="3" id="3">Earth</option>
+        <option value="4" id="4">Mars</option>
+        <option value="5" id="5">Jupiter</option>
+        <option value="6" id="6">Saturn</option>
+        <option value="7" id="7">Uranus</option>
+        <option value="8" id="8">Neptune</option>
+    </select>
+<p id="p1"></p>
+<img id="image">
+<script>
+  function func(name,place,near){
+   this.name=name;
+   this.place=place;
+   this.near=near;
+   this.display=function(){
+    document.getElementById("p1").innerHTML="The name of the planet is "+ this.name +" of  "+ this.place +" place and "+this.near+" to/from sun."
+    document.getElementById("image").style.visibility="visible";
+   }
+}
+function planets(num){
+    if(num==1){
+        let mercury=new func("Mercury",1,"close")
+        var i=document.getElementById("image").src="mercury.jpeg";
+        mercury.display()
+    }
+    if(num==2){
+        let venus=new func("Venus",2,"close")
+        var i=document.getElementById("image").src="venus.jpeg";
+        venus.display()
+    }
+    if(num==3){
+        let earth=new func("Earth",3,"close")
+        var i=document.getElementById("image").src="earth.jpeg";
+        earth.display()
+    }
+    if(num==4){
+        let mars=new func("Mars",1,"close")
+        var i=document.getElementById("image").src="mars.jpeg";
+        mars.display()
+    }
+    if(num==5){
+        let jupiter=new func("Jupiter",1,"close")
+        var i=document.getElementById("image").src="jupiter.jpeg";
+        jupiter.display()
+    }
+    if(num==6){
+        let saturn=new func("Saturn",1,"close")
+        var i=document.getElementById("image").src="saturn.jpeg";
+        saturn.display()
+    }
+    if(num==7){
+        let uranus=new func("Uranus",1,"close")
+        var i=document.getElementById("image").src="uranus.jpeg";
+        uranus.display()
+    }
+    if(num==8){
+        let neptune=new func("Neptune",1,"close")
+        var i=document.getElementById("image").src="neptune.jpeg";
+        neptune.display()
+    }
+}
+    
+</script>
+</body>
+</html>   

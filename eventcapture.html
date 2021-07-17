@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .class1{
+            display:table-cell;
+            padding:40px;
+            width:300px;
+            height:150px;
+            border: 1px solid black;
+            background-color: burlywood;
+        }
+        .same{
+            display:table-cell;
+            padding:80px;
+        }
+    </style>
+</head>
+<body>
+    <div class="same">
+    <label style="font-size: 30px;font-style: italic;">Capturing</label>
+   <div id="div1" class="class1"><h2>div</h2>
+    <h1 id="h1" class="class1">head
+       <p1 id="p1" class="class1">para</p1>
+    </h1>
+   </div>
+   </div>
+   <div class="same">
+    <label style="font-size: 30px;font-style: italic;">Bubbling</label>
+   <div id="div2" class="class1"><h2>div</h2>
+    <h1 id="h2" class="class1">head
+       <p1 id="p2" class="class1">para</p1>
+    </h1>
+   </div>
+   </div>
+   <script>
+    var divs= document.getElementById("div1");
+    divs.addEventListener("click",function(){alert("you clicked div element")},true);
+    var p1= document.getElementById("p1");
+    p1.addEventListener("click",function(){alert("you clicked paragraph element")},true);
+    var h1= document.getElementById("h1");
+    h1.addEventListener("click",function(){alert("you clicked head element")},true);
+    var divs1= document.getElementById("div2");
+    divs1.addEventListener("click",function(){alert("you clicked div element")},false);
+    var p2= document.getElementById("p2");
+    p2.addEventListener("click",function(){alert("you clicked paragraph element")},false);
+    var h2= document.getElementById("h2");
+    h2.addEventListener("click",function(){alert("you clicked head element")},false);
+   </script>
+</body>
+</html>

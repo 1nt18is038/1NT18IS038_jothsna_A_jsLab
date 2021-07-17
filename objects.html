@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #date1{
+            background-color: skyblue;
+            width:250px;
+            height:50px;
+            padding-top:20px;
+            padding-left: 50px;
+            font-size: 20px;
+            color:black;
+        }
+        .div1{
+            color:red;
+            font-size:30px;
+            background-color:grey
+        }
+        .arrobj{
+            background-color: lightcoral;
+            font-size:25px;
+            height:350px;
+        }
+        #sel{
+            height:30px;
+            width:200px;
+            font-size: 15px;
+        }
+        .exp{
+            margin-top:20px;
+            background-color:grey;
+            height:200px;
+            font-size:20px;
+        }
+        .btn{
+            width:80px;
+            height:25px;
+            background-color: green;
+            color:white;
+        }
+    </style>
+    <script type="text/javascript">
+    function display_c(){
+     var refresh=1000; // Refresh rate in milli seconds
+     mytime=setTimeout('display()',refresh)
+}
+        function display(){
+        let today=new Date();
+        var display=today.getFullYear()+'/'+(today.getMonth()+1)+'/'+today.getDate();
+        display=display+"    "+today.getHours()+':'+today.getMinutes()+':'+today.getSeconds();
+        document.getElementById("date1").innerHTML=display;
+        display_c();
+        }
+        let arr1=["red","white","purple","green","orange"];
+        let arr2=["apple","grapes","mango","melon","orange"];
+        function arrobj(select){
+            document.getElementById("d").innerHTML="Array1:"+arr1+"<br>"+"Array2:"+arr2;
+            if(select==1){
+             let newarr=arr1.concat(arr2);
+            document.getElementById('dis').innerHTML="On concatinating Array1 and Array2:"+newarr;
+            }
+            if(select==2){
+                document.getElementById('dis').innerHTML="On reversing Array1 elements:"+arr1.reverse();
+            }
+            if(select==3){
+                const filteredarr=arr1.filter(item=>!arr2.includes(item))
+                document.getElementById('dis').innerHTML="on filtering Array1 by comparing with Array2:"+filteredarr;
+            }
+            if(select==4){
+                arr1.forEach((item,index,a)=>{
+        a[index]=`at index ${index} the color is ${item}`;
+            })
+            document.getElementById('dis').innerHTML=arr1.join("<br>");
+        }
+        if(select==5){
+            var find=prompt("enter the string to find",null);
+           var n=arr1.indexOf(find);
+           if(n==-1){
+            document.getElementById('dis').innerHTML="Given string is not in Array1";   
+           }
+           else
+           document.getElementById('dis').innerHTML="the position of string in an Array1 is:"+(n+1);
+        }
+        if(select==6){
+            document.getElementById('dis').innerHTML=(arr1.join("-"+arr2+"<br>")) 
+        }
+        if(select==7){
+            var find=prompt("enter the string to find",null);
+           var n=arr1.lastIndexOf(find);
+            if(n==-1){
+            document.getElementById('dis').innerHTML="Given string is not in Array1";   
+           }
+           else
+           document.getElementById('dis').innerHTML="the position of"+" "+find+" "+"in an Array1 is:"+(n+1);
+        }
+        if(select==8){
+            var append=prompt("enter the element to map to array","");
+            const newarr2=arr2.map(item=>{return item+append})
+            document.getElementById('dis').innerHTML="The new Array2 is:"+"<br>"+newarr2;
+        }
+        if(select==9){
+            var pop=prompt("enter the element to remove from array","");
+            if(pop==""){
+                alert("Please enter element to delete");
+                arrobj(9);
+            }
+            else{
+           arr1.pop(pop);
+           document.getElementById('dis').innerHTML="After removing "+" "+pop+" "+"from Array1=>"+arr1;
+            }
+        }
+        if(select==10){
+            var push=prompt("enter the element to push in to array","");
+            if(push==""){
+                alert("please enter string to add");
+                 arrobj(10);
+            }
+                else{
+           arr1.push(push);
+           document.getElementById('dis').innerHTML="After pushing "+" "+push+" "+"in to Array1=>"+arr1;
+            }
+        }
+        }
+        function expo(){
+              var num =parseFloat(document.getElementById("number").value);
+
+              var n=num.toExponential();
+               document.getElementById("exp").innerHTML = num+" Exponential form is:"+" "+n;
+            
+        }
+    </script>
+</head>
+ <body onload="display()">
+    <div class="div1">
+        Date and Time:
+        <p id="date1"></p>
+    </div> 
+    <div class="arrobj">
+        <h style="color:white;">Array Functions</h><br>
+    <select name="sel" id="sel" onchange="arrobj(this.value)">
+        <option value="0" id="0"></option>
+        <option value="1" id="1">Concatination</option>
+        <option value="2" id="2">Reverse</option>
+        <option value="3" id="3">Filter</option>
+        <option value="4" id="4">For Each</option>
+        <option value="5" id="5">Indexof</option>
+        <option value="6" id="6">Join</option>
+        <option value="7" id="7">LastIndexOf</option>
+        <option value="8" id="8">Map</option>
+        <option value="9" id="9">Pop</option>
+        <option value="10" id="10">Push</option>
+    </select>
+    <p id="d"></p>
+    <p id="dis"></p>
+    </div>
+    <div class="exp">
+        <h style="color:honeydew;font-size:30px;">Converting to Exponential form:</h><br><br>
+        <input type="text" name="number" id="number" placeholder="enter Number"><br><br>
+        <button class="btn" onclick="expo();">Click</button>
+        <p id="exp"></p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    var colors=['red','blue','orange','black'];
+    colors.forEach((product,index,a)=>{
+        a[index]=`at index ${index} the color is ${product}`
+    })
+    console.log(colors)
+    const newcol=colors.map(item=>{return item+"new"})
+    console.log(newcol)
+    </script>
+</body>
+</html>

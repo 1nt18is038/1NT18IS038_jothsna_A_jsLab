@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nested div</title>
+    <style>
+        .container{
+            position:fixed;
+        }
+        #b1{
+             width:12cm;
+             height:12cm;
+             background-color: green;
+        }
+        #b2{
+            width:8cm;
+             height:8cm;
+             background-color:hsl(146, 39%, 77%);
+        }
+        #b3{
+            width:4cm;
+             height:4cm;
+             background-color: hsl(352, 89%, 77%);
+        }
+        #b4{
+            width:2cm;
+             height:2cm;
+             background-color: grey;
+        }
+        #b1,#b2,#b3{
+            padding-top: 2cm;
+            padding-left: 2cm;
+            padding-right:2cm;
+        }
+
+    </style>
+</head>
+<body>
+   <center>
+       <div class="container">
+    <div id="b1">
+        <div id="b2">
+            <div id="b3">
+                <div id="b4">
+                    
+                </div>
+            </div>
+        </div>
+    </div></div></center> 
+    <script src="click.js"></script>
+</body>
+</html>
